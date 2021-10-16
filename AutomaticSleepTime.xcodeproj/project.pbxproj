@@ -24,7 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6973BCE8271B3F9D006138B2 /* automatic-sleep-time */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "automatic-sleep-time"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6973BCE8271B3F9D006138B2 /* sleep-time */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sleep-time"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6973BCEB271B3F9D006138B2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 		6973BCE9271B3F9D006138B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6973BCE8271B3F9D006138B2 /* automatic-sleep-time */,
+				6973BCE8271B3F9D006138B2 /* sleep-time */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6973BCE7271B3F9D006138B2 /* automatic-sleep-time */ = {
+		6973BCE7271B3F9D006138B2 /* sleep-time */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6973BCEF271B3F9D006138B2 /* Build configuration list for PBXNativeTarget "automatic-sleep-time" */;
+			buildConfigurationList = 6973BCEF271B3F9D006138B2 /* Build configuration list for PBXNativeTarget "sleep-time" */;
 			buildPhases = (
 				6973BCE4271B3F9D006138B2 /* Sources */,
 				6973BCE5271B3F9D006138B2 /* Frameworks */,
@@ -79,12 +79,12 @@
 			);
 			dependencies = (
 			);
-			name = "automatic-sleep-time";
+			name = "sleep-time";
 			packageProductDependencies = (
 				6973BCF3271B4101006138B2 /* Solar */,
 			);
 			productName = AutomaticSleepTime;
-			productReference = 6973BCE8271B3F9D006138B2 /* automatic-sleep-time */;
+			productReference = 6973BCE8271B3F9D006138B2 /* sleep-time */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6973BCE7271B3F9D006138B2 /* automatic-sleep-time */,
+				6973BCE7271B3F9D006138B2 /* sleep-time */,
 			);
 		};
 /* End PBXProject section */
@@ -281,7 +281,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6973BCEF271B3F9D006138B2 /* Build configuration list for PBXNativeTarget "automatic-sleep-time" */ = {
+		6973BCEF271B3F9D006138B2 /* Build configuration list for PBXNativeTarget "sleep-time" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6973BCF0271B3F9D006138B2 /* Debug */,
