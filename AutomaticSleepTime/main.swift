@@ -168,5 +168,6 @@ if CommandLine.arguments.count > 1 {
 }
 
 for date in stride(from: Date(), to: endDate, by: TimeInterval(earthDay)) {
+  print(date, "...")
   createSleepEvent(forNightAfter: date)
 }

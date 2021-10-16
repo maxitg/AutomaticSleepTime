@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6973BCE7271B3F9D006138B2"
-               BuildableName = "automatic-sleep-time"
+               BuildableName = "sleep-time"
                BlueprintName = "sleep-time"
                ReferencedContainer = "container:AutomaticSleepTime.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6973BCE7271B3F9D006138B2"
-            BuildableName = "automatic-sleep-time"
+            BuildableName = "sleep-time"
             BlueprintName = "sleep-time"
             ReferencedContainer = "container:AutomaticSleepTime.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6973BCE7271B3F9D006138B2"
-            BuildableName = "automatic-sleep-time"
+            BuildableName = "sleep-time"
             BlueprintName = "sleep-time"
             ReferencedContainer = "container:AutomaticSleepTime.xcodeproj">
          </BuildableReference>
