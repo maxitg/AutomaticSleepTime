@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6973BCEC271B3F9D006138B2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973BCEB271B3F9D006138B2 /* main.swift */; };
+		6973BCF4271B4101006138B2 /* Solar in Frameworks */ = {isa = PBXBuildFile; productRef = 6973BCF3271B4101006138B2 /* Solar */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6973BCE8271B3F9D006138B2 /* AutomaticSleepTime */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AutomaticSleepTime; sourceTree = BUILT_PRODUCTS_DIR; };
+		6973BCE8271B3F9D006138B2 /* automatic-sleep-time */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "automatic-sleep-time"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6973BCEB271B3F9D006138B2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6973BCF4271B4101006138B2 /* Solar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,7 +51,7 @@
 		6973BCE9271B3F9D006138B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6973BCE8271B3F9D006138B2 /* AutomaticSleepTime */,
+				6973BCE8271B3F9D006138B2 /* automatic-sleep-time */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6973BCE7271B3F9D006138B2 /* AutomaticSleepTime */ = {
+		6973BCE7271B3F9D006138B2 /* automatic-sleep-time */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6973BCEF271B3F9D006138B2 /* Build configuration list for PBXNativeTarget "AutomaticSleepTime" */;
+			buildConfigurationList = 6973BCEF271B3F9D006138B2 /* Build configuration list for PBXNativeTarget "automatic-sleep-time" */;
 			buildPhases = (
 				6973BCE4271B3F9D006138B2 /* Sources */,
 				6973BCE5271B3F9D006138B2 /* Frameworks */,
@@ -77,9 +79,12 @@
 			);
 			dependencies = (
 			);
-			name = AutomaticSleepTime;
+			name = "automatic-sleep-time";
+			packageProductDependencies = (
+				6973BCF3271B4101006138B2 /* Solar */,
+			);
 			productName = AutomaticSleepTime;
-			productReference = 6973BCE8271B3F9D006138B2 /* AutomaticSleepTime */;
+			productReference = 6973BCE8271B3F9D006138B2 /* automatic-sleep-time */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -106,11 +111,14 @@
 				Base,
 			);
 			mainGroup = 6973BCDF271B3F9D006138B2;
+			packageReferences = (
+				6973BCF2271B4101006138B2 /* XCRemoteSwiftPackageReference "Solar" */,
+			);
 			productRefGroup = 6973BCE9271B3F9D006138B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6973BCE7271B3F9D006138B2 /* AutomaticSleepTime */,
+				6973BCE7271B3F9D006138B2 /* automatic-sleep-time */,
 			);
 		};
 /* End PBXProject section */
@@ -255,6 +263,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				EXCLUDED_ARCHS = arm64;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -272,7 +281,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6973BCEF271B3F9D006138B2 /* Build configuration list for PBXNativeTarget "AutomaticSleepTime" */ = {
+		6973BCEF271B3F9D006138B2 /* Build configuration list for PBXNativeTarget "automatic-sleep-time" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6973BCF0271B3F9D006138B2 /* Debug */,
@@ -282,6 +291,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6973BCF2271B4101006138B2 /* XCRemoteSwiftPackageReference "Solar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ceeK/Solar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6973BCF3271B4101006138B2 /* Solar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6973BCF2271B4101006138B2 /* XCRemoteSwiftPackageReference "Solar" */;
+			productName = Solar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6973BCE0271B3F9D006138B2 /* Project object */;
 }
