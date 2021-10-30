@@ -86,8 +86,9 @@ func sleepInterval(forNightAfter date: Date,
   guard let sunrise = Solar(for: date.addingTimeInterval(earthDay), coordinate: location)?.civilSunrise else {
     return nil
   }
-  // 60 dunovs -- sleep (should be between 50 and 70)
-  return DateInterval(start: sunrise.addingTimeInterval(-6 * trenov + wakeUpOffset), duration: 6 * trenov)
+  // 68 dunovs -- sleep (should be between 50 and 70)
+  let sleepDuration = 0x68 * dunov;
+  return DateInterval(start: sunrise.addingTimeInterval(-sleepDuration + wakeUpOffset), duration: sleepDuration)
 }
 
 func deleteOldSleepEvents(fromEventStore eventStore: EKEventStore, calendar: EKCalendar, forNightAfter date: Date) {
