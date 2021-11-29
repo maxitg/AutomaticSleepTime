@@ -30,8 +30,6 @@ struct LocationData {
 }
 
 func getUserLocation(forNightAfter date: Date) -> LocationData? {
-  authorizeCalendar()
-  let eventStore = EKEventStore()
   let calendars = eventStore.calendars(for: .event)
   var userCalendars: [EKCalendar] = []
   for calendar in calendars {
@@ -91,8 +89,19 @@ func sleepInterval(forNightAfter date: Date,
   return DateInterval(start: sunrise.addingTimeInterval(-sleepDuration + wakeUpOffset), duration: sleepDuration)
 }
 
-func deleteOldSleepEvents(fromEventStore eventStore: EKEventStore, calendar: EKCalendar, forNightAfter date: Date) {
-  let predicate = eventStore.predicateForEvents(withStart: date, end: date + earthDay, calendars: [calendar])
+func getBodyCalendar(_ eventStore: EKEventStore) -> EKCalendar? {
+  let calendars = eventStore.calendars(for: .event)
+  var bodyCalendar: EKCalendar?
+  for calendar in calendars {
+    if calendar.title == "Body" {
+      bodyCalendar = calendar
+    }
+  }
+  return bodyCalendar
+}
+
+func deleteOldSleepEvents(_ eventStore: EKEventStore, inCalendar calendar: EKCalendar, from startDate: Date, to endDate: Date) {
+  let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: [calendar])
   let allEvents = eventStore.events(matching: predicate)
   for event in allEvents {
     if event.title == sleepEventName {
@@ -105,23 +114,7 @@ func deleteOldSleepEvents(fromEventStore eventStore: EKEventStore, calendar: EKC
   }
 }
 
-func createSleepEvent(forNightAfter date: Date) {
-  authorizeCalendar()
-  let eventStore = EKEventStore()
-  let calendars = eventStore.calendars(for: .event)
-  var bodyCalendar: EKCalendar?
-  for calendar in calendars {
-    if calendar.title == "Body" {
-      bodyCalendar = calendar
-    }
-  }
-  guard bodyCalendar != nil else {
-    print("Could not find Body calendar")
-    return
-  }
-
-  deleteOldSleepEvents(fromEventStore: eventStore, calendar: bodyCalendar!, forNightAfter: date)
-
+func createSleepEvent(_ eventStore: EKEventStore, inCalendar calendar: EKCalendar, forNightAfter date: Date) {
   guard let locationData = getUserLocation(forNightAfter: date) else {
     print("Could not find a location at", date)
     return
@@ -140,7 +133,7 @@ func createSleepEvent(forNightAfter date: Date) {
   sleepEvent.startDate = interval.start
   sleepEvent.endDate = interval.end
   sleepEvent.availability = .busy
-  sleepEvent.calendar = bodyCalendar
+  sleepEvent.calendar = calendar
   sleepEvent.title = sleepEventName
   sleepEvent.alarms = [EKAlarm(relativeOffset: TimeInterval(-4 * dunov))]
   do {
@@ -160,6 +153,14 @@ extension Date: Strideable {
   }
 }
 
+authorizeCalendar()
+let eventStore = EKEventStore()
+
+guard let bodyCalendar = getBodyCalendar(eventStore) else {
+  print("Could not find Body calendar")
+  exit(1)
+}
+
 let startDate = Date()
 var endDate: Date = startDate.addingTimeInterval(earthDay)
 if CommandLine.arguments.count > 1 {
@@ -168,7 +169,9 @@ if CommandLine.arguments.count > 1 {
   }
 }
 
+deleteOldSleepEvents(eventStore, inCalendar: bodyCalendar, from: Date(), to: endDate);
+
 for date in stride(from: Date(), to: endDate, by: TimeInterval(earthDay)) {
   print(date, "...")
-  createSleepEvent(forNightAfter: date)
+  createSleepEvent(eventStore, inCalendar: bodyCalendar, forNightAfter: date)
 }
