@@ -3,14 +3,24 @@ import EventKit
 import Foundation
 import Solar
 
-func authorizeCalendar() {
+func authorizeCalendar() -> Bool {
+    let semaphore = DispatchSemaphore(value: 0)
+    var authorizationGranted = false
+
     switch EKEventStore.authorizationStatus(for: .event) {
     case .notDetermined:
-        EKEventStore()
-            .requestFullAccessToEvents(completion: { (granted: Bool, error: Error?) in
-                if !granted { print(error?.localizedDescription ?? "Could not get Calendar access") }
-            })
-    case .authorized: break
+        EKEventStore().requestFullAccessToEvents { granted, error in
+            if let error = error {
+                print("Error requesting Calendar access: \(error.localizedDescription)")
+            } else if !granted {
+                print("User denied Calendar access.")
+            }
+            authorizationGranted = granted
+            semaphore.signal()
+        }
+        semaphore.wait() // Wait until the user responds
+    case .authorized:
+        authorizationGranted = true
     case .denied:
         print("User denied Calendar access. Cannot determine location or write events")
     case .restricted:
@@ -18,6 +28,8 @@ func authorizeCalendar() {
     @unknown default:
         print("Unknown error occured while accessing Calendar")
     }
+
+    return authorizationGranted
 }
 
 struct LocationData {
