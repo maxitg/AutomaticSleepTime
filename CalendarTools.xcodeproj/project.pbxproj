@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6973BCEC271B3F9D006138B2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973BCEB271B3F9D006138B2 /* main.swift */; };
 		6973BCF4271B4101006138B2 /* Solar in Frameworks */ = {isa = PBXBuildFile; productRef = 6973BCF3271B4101006138B2 /* Solar */; };
 /* End PBXBuildFile section */
 
@@ -25,9 +24,12 @@
 
 /* Begin PBXFileReference section */
 		6973BCE8271B3F9D006138B2 /* sleep-time */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sleep-time"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6973BCEB271B3F9D006138B2 /* main.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; tabWidth = 4; };
 		697497512DAB70580006CAD8 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; tabWidth = 4; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6971ED002DAC6B8A0009F876 /* sleep-time */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "sleep-time"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6973BCE5271B3F9D006138B2 /* Frameworks */ = {
@@ -44,7 +46,7 @@
 		6973BCDF271B3F9D006138B2 = {
 			isa = PBXGroup;
 			children = (
-				6973BCEA271B3F9D006138B2 /* AutomaticSleepTime */,
+				6973BCEA271B3F9D006138B2 /* CalendarTools */,
 				6973BCE9271B3F9D006138B2 /* Products */,
 				697497512DAB70580006CAD8 /* .swiftformat */,
 			);
@@ -58,12 +60,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6973BCEA271B3F9D006138B2 /* AutomaticSleepTime */ = {
+		6973BCEA271B3F9D006138B2 /* CalendarTools */ = {
 			isa = PBXGroup;
 			children = (
-				6973BCEB271B3F9D006138B2 /* main.swift */,
+				6971ED002DAC6B8A0009F876 /* sleep-time */,
 			);
-			path = AutomaticSleepTime;
+			path = CalendarTools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +82,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6971ED002DAC6B8A0009F876 /* sleep-time */,
 			);
 			name = "sleep-time";
 			packageProductDependencies = (
@@ -104,7 +109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6973BCE3271B3F9D006138B2 /* Build configuration list for PBXProject "AutomaticSleepTime" */;
+			buildConfigurationList = 6973BCE3271B3F9D006138B2 /* Build configuration list for PBXProject "CalendarTools" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -130,7 +135,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6973BCEC271B3F9D006138B2 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +288,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6973BCE3271B3F9D006138B2 /* Build configuration list for PBXProject "AutomaticSleepTime" */ = {
+		6973BCE3271B3F9D006138B2 /* Build configuration list for PBXProject "CalendarTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6973BCED271B3F9D006138B2 /* Debug */,
