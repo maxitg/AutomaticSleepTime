@@ -6,14 +6,10 @@ import Solar
 func authorizeCalendar() {
     switch EKEventStore.authorizationStatus(for: .event) {
     case .notDetermined:
-        EKEventStore().requestAccess(
-            to: .event,
-            completion: { (granted: Bool, error: Error?) in
-                if !granted {
-                    print(error?.localizedDescription ?? "Could not get Calendar access")
-                }
-            }
-        )
+        EKEventStore()
+            .requestFullAccessToEvents(completion: { (granted: Bool, error: Error?) in
+                if !granted { print(error?.localizedDescription ?? "Could not get Calendar access") }
+            })
     case .authorized: break
     case .denied:
         print("User denied Calendar access. Cannot determine location or write events")
@@ -144,7 +140,13 @@ func createSleepEvent(_ eventStore: EKEventStore, inCalendar calendar: EKCalenda
     }
 
     let sleepEvent = EKEvent(eventStore: eventStore)
-    sleepEvent.structuredLocation = locationData.location
+
+    //  We need to deep copy the location to avoid corrupting the original event
+    let newLocation = EKStructuredLocation()
+    newLocation.title = locationData.location.title
+    newLocation.geoLocation = locationData.location.geoLocation
+    sleepEvent.structuredLocation = newLocation
+
     sleepEvent.isAllDay = false
     sleepEvent.startDate = interval.start
     sleepEvent.endDate = interval.end
