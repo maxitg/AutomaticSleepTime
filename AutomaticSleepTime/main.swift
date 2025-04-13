@@ -103,10 +103,8 @@ func sleepInterval(
 func getBodyCalendar(_ eventStore: EKEventStore) -> EKCalendar? {
     let calendars = eventStore.calendars(for: .event)
     var bodyCalendar: EKCalendar?
-    for calendar in calendars {
-        if calendar.title == "Body" {
-            bodyCalendar = calendar
-        }
+    for calendar in calendars where calendar.title == "Body" {
+        bodyCalendar = calendar
     }
     return bodyCalendar
 }
@@ -119,13 +117,11 @@ func deleteOldSleepEvents(
 ) {
     let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: [calendar])
     let allEvents = eventStore.events(matching: predicate)
-    for event in allEvents {
-        if event.title == sleepEventName {
-            do {
-                try eventStore.remove(event, span: .thisEvent)
-            } catch {
-                print("Could not remove an existing sleep event: ", error.localizedDescription)
-            }
+    for event in allEvents where event.title == sleepEventName {
+        do {
+            try eventStore.remove(event, span: .thisEvent)
+        } catch {
+            print("Could not remove an existing sleep event: ", error.localizedDescription)
         }
     }
 }
