@@ -176,16 +176,6 @@ func createSleepEvent(_ eventStore: EKEventStore, inCalendar calendar: EKCalenda
     }
 }
 
-extension Date: Strideable {
-    public func distance(to other: Date) -> TimeInterval {
-        other.timeIntervalSinceReferenceDate - timeIntervalSinceReferenceDate
-    }
-
-    public func advanced(by n: TimeInterval) -> Date {
-        self + n
-    }
-}
-
 let eventStore = EKEventStore()
 if !authorizeCalendar(eventStore) {
     print("Could not get calendar access, cannot determine location or write events")
