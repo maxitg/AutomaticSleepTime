@@ -20,8 +20,10 @@ func authorizeCalendar(_ eventStore: EKEventStore) -> Bool {
             semaphore.signal()
         }
         semaphore.wait() // Wait until the user responds
-    case .authorized:
+    case .fullAccess:
         authorizationGranted = true
+    case .writeOnly:
+        print("Write-only access is insufficient, read access is required")
     case .denied:
         print(accessDeniedMessage)
     case .restricted:
