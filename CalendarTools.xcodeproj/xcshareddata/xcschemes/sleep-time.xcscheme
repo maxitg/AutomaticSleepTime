@@ -17,7 +17,7 @@
                BlueprintIdentifier = "6973BCE7271B3F9D006138B2"
                BuildableName = "sleep-time"
                BlueprintName = "sleep-time"
-               ReferencedContainer = "container:AutomaticSleepTime.xcodeproj">
+               ReferencedContainer = "container:CalendarTools.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "6973BCE7271B3F9D006138B2"
             BuildableName = "sleep-time"
             BlueprintName = "sleep-time"
-            ReferencedContainer = "container:AutomaticSleepTime.xcodeproj">
+            ReferencedContainer = "container:CalendarTools.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -70,7 +70,7 @@
             BlueprintIdentifier = "6973BCE7271B3F9D006138B2"
             BuildableName = "sleep-time"
             BlueprintName = "sleep-time"
-            ReferencedContainer = "container:AutomaticSleepTime.xcodeproj">
+            ReferencedContainer = "container:CalendarTools.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
