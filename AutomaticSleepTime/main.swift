@@ -113,7 +113,7 @@ func deleteOldSleepEvents(
 ) {
     let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: [calendar])
     let allEvents = eventStore.events(matching: predicate)
-    for event in allEvents where event.title == sleepEventName {
+    for event in allEvents where event.title == sleepEventName && event.startDate >= startDate {
         do {
             try eventStore.remove(event, span: .thisEvent)
         } catch {
@@ -183,13 +183,13 @@ let startDate = Date()
 var endDate: Date = startDate.addingTimeInterval(earthDay)
 if CommandLine.arguments.count > 1 {
     if let dayCount = Int(CommandLine.arguments[1], radix: 16) {
-        endDate = Date().addingTimeInterval(Double(dayCount) * earthDay)
+        endDate = startDate.addingTimeInterval(Double(dayCount) * earthDay)
     }
 }
 
-deleteOldSleepEvents(eventStore, inCalendar: bodyCalendar, from: Date(), to: endDate)
+deleteOldSleepEvents(eventStore, inCalendar: bodyCalendar, from: startDate, to: endDate)
 
-for date in stride(from: Date(), to: endDate, by: TimeInterval(earthDay)) {
+for date in stride(from: startDate, to: endDate, by: TimeInterval(earthDay)) {
     print(date, "...")
     createSleepEvent(eventStore, inCalendar: bodyCalendar, forNightAfter: date)
 }
