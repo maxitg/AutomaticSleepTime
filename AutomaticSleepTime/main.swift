@@ -3,21 +3,34 @@ import EventKit
 import Foundation
 import Solar
 
-func authorizeCalendar() {
+func authorizeCalendar(_ eventStore: EKEventStore) -> Bool {
+    let semaphore = DispatchSemaphore(value: 0)
+    var authorizationGranted = false
+    let accessDeniedMessage = "User denied Calendar access"
+
     switch EKEventStore.authorizationStatus(for: .event) {
     case .notDetermined:
-        EKEventStore()
-            .requestFullAccessToEvents(completion: { (granted: Bool, error: Error?) in
-                if !granted { print(error?.localizedDescription ?? "Could not get Calendar access") }
-            })
-    case .authorized: break
+        eventStore.requestFullAccessToEvents { granted, error in
+            if let error = error {
+                print("Error requesting Calendar access: \(error.localizedDescription)")
+            } else if !granted {
+                print(accessDeniedMessage)
+            }
+            authorizationGranted = granted
+            semaphore.signal()
+        }
+        semaphore.wait() // Wait until the user responds
+    case .authorized:
+        authorizationGranted = true
     case .denied:
-        print("User denied Calendar access. Cannot determine location or write events")
+        print(accessDeniedMessage)
     case .restricted:
-        print("Access to Calendar is restricted. Cannot determine location or write events")
+        print("Access to Calendar is restricted")
     @unknown default:
         print("Unknown error occured while accessing Calendar")
     }
+
+    return authorizationGranted
 }
 
 struct LocationData {
@@ -171,8 +184,11 @@ extension Date: Strideable {
     }
 }
 
-authorizeCalendar()
 let eventStore = EKEventStore()
+if !authorizeCalendar(eventStore) {
+    print("Could not get calendar access, cannot determine location or write events")
+    exit(1)
+}
 
 guard let bodyCalendar = getBodyCalendar(eventStore) else {
     print("Could not find Body calendar")
