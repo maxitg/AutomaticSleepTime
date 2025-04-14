@@ -173,7 +173,7 @@ class TimeOffTracker {
 
     lazy var budgetDays: Int = {
         let yearsSinceStart = Float(Date().timeIntervalSince(startDate)) / Float(year)
-        return Int(floor(yearsSinceStart * Float(targetDaysPerYear)))
+        return max(0, Int(floor(yearsSinceStart * Float(targetDaysPerYear))))
     }()
 
     private func allEvents(since startDate: Date, to endDate: Date) -> [EKEvent] {
