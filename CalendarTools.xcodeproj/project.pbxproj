@@ -8,9 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		6973BCF4271B4101006138B2 /* Solar in Frameworks */ = {isa = PBXBuildFile; productRef = 6973BCF3271B4101006138B2 /* Solar */; };
+		69F4A17A2DAC7B6100E810F6 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 69F4A1792DAC7B6100E810F6 /* ArgumentParser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6971ED0B2DAC76390009F876 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		6973BCE6271B3F9D006138B2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -23,15 +33,54 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6971ED0D2DAC76390009F876 /* time-off */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "time-off"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6973BCE8271B3F9D006138B2 /* sleep-time */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sleep-time"; sourceTree = BUILT_PRODUCTS_DIR; };
 		697497512DAB70580006CAD8 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; tabWidth = 4; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6971ED152DAC76560009F876 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				main.swift,
+				TimeOff.swift,
+				TimeOffTracker.swift,
+			);
+			target = 6971ED0C2DAC76390009F876 /* time-off */;
+		};
+		6971ED172DAC76730009F876 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				main.swift,
+				TimeOff.swift,
+				TimeOffTracker.swift,
+			);
+			target = 6973BCE7271B3F9D006138B2 /* sleep-time */;
+		};
+		69F4A17C2DAC7BF000E810F6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				authorizeCalendar.swift,
+			);
+			target = 6971ED0C2DAC76390009F876 /* time-off */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6971ED002DAC6B8A0009F876 /* sleep-time */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "sleep-time"; sourceTree = "<group>"; };
+		6971ED012DAC75630009F876 /* time-off */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (6971ED172DAC76730009F876 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 6971ED152DAC76560009F876 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "time-off"; sourceTree = "<group>"; };
+		6971ED182DAC76BB0009F876 /* common */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (69F4A17C2DAC7BF000E810F6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = common; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6971ED0A2DAC76390009F876 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69F4A17A2DAC7B6100E810F6 /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6973BCE5271B3F9D006138B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,9 +95,11 @@
 		6973BCDF271B3F9D006138B2 = {
 			isa = PBXGroup;
 			children = (
-				6973BCEA271B3F9D006138B2 /* CalendarTools */,
+				6971ED182DAC76BB0009F876 /* common */,
 				6973BCE9271B3F9D006138B2 /* Products */,
 				697497512DAB70580006CAD8 /* .swiftformat */,
+				6971ED012DAC75630009F876 /* time-off */,
+				6971ED002DAC6B8A0009F876 /* sleep-time */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,21 +107,34 @@
 			isa = PBXGroup;
 			children = (
 				6973BCE8271B3F9D006138B2 /* sleep-time */,
+				6971ED0D2DAC76390009F876 /* time-off */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		6973BCEA271B3F9D006138B2 /* CalendarTools */ = {
-			isa = PBXGroup;
-			children = (
-				6971ED002DAC6B8A0009F876 /* sleep-time */,
-			);
-			path = CalendarTools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6971ED0C2DAC76390009F876 /* time-off */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6971ED112DAC76390009F876 /* Build configuration list for PBXNativeTarget "time-off" */;
+			buildPhases = (
+				6971ED092DAC76390009F876 /* Sources */,
+				6971ED0A2DAC76390009F876 /* Frameworks */,
+				6971ED0B2DAC76390009F876 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "time-off";
+			packageProductDependencies = (
+				69F4A1792DAC7B6100E810F6 /* ArgumentParser */,
+			);
+			productName = "time-off";
+			productReference = 6971ED0D2DAC76390009F876 /* time-off */;
+			productType = "com.apple.product-type.tool";
+		};
 		6973BCE7271B3F9D006138B2 /* sleep-time */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6973BCEF271B3F9D006138B2 /* Build configuration list for PBXNativeTarget "sleep-time" */;
@@ -85,6 +149,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				6971ED002DAC6B8A0009F876 /* sleep-time */,
+				6971ED012DAC75630009F876 /* time-off */,
+				6971ED182DAC76BB0009F876 /* common */,
 			);
 			name = "sleep-time";
 			packageProductDependencies = (
@@ -101,9 +167,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					6971ED0C2DAC76390009F876 = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					6973BCE7271B3F9D006138B2 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -120,17 +189,26 @@
 			mainGroup = 6973BCDF271B3F9D006138B2;
 			packageReferences = (
 				6973BCF2271B4101006138B2 /* XCRemoteSwiftPackageReference "Solar" */,
+				69F4A1782DAC7B6100E810F6 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 			);
 			productRefGroup = 6973BCE9271B3F9D006138B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				6973BCE7271B3F9D006138B2 /* sleep-time */,
+				6971ED0C2DAC76390009F876 /* time-off */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6971ED092DAC76390009F876 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6973BCE4271B3F9D006138B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,6 +219,41 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		6971ED122DAC76390009F876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "time-off/time-off.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4FZCW36HH2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6971ED132DAC76390009F876 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "time-off/time-off.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4FZCW36HH2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		6973BCED271B3F9D006138B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -288,6 +401,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6971ED112DAC76390009F876 /* Build configuration list for PBXNativeTarget "time-off" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6971ED122DAC76390009F876 /* Debug */,
+				6971ED132DAC76390009F876 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6973BCE3271B3F9D006138B2 /* Build configuration list for PBXProject "CalendarTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -317,6 +439,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		69F4A1782DAC7B6100E810F6 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -324,6 +454,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6973BCF2271B4101006138B2 /* XCRemoteSwiftPackageReference "Solar" */;
 			productName = Solar;
+		};
+		69F4A1792DAC7B6100E810F6 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69F4A1782DAC7B6100E810F6 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
