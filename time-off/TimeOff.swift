@@ -11,7 +11,7 @@ struct TimeOff: ParsableCommand {
 
 struct CommonOptions: ParsableArguments {
     @Option(name: .customLong("since"), help: "Start date in YYYY-MM-DD format.")
-    var since: String
+    var since: String = .init(Date().description.split(separator: " ").first!)
 
     @Option(name: .customLong("target-days-per-year"), help: "Target number of days off per year.")
     var targetDaysPerYear: Int = 18
