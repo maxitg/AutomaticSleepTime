@@ -27,6 +27,9 @@ struct List: ParsableCommand {
         for event in tracker.ranges {
             print(event.description)
         }
+        if tracker.ranges.count == 0 {
+            print("No time off found")
+        }
 
         let totalUsed = tracker.ranges.reduce(0) { $0 + $1.usedDays }
         print()
