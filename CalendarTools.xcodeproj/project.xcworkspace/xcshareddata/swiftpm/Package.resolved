@@ -1,16 +1,24 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Solar",
-        "repositoryURL": "https://github.com/ceeK/Solar.git",
-        "state": {
-          "branch": null,
-          "revision": "c2b96f2d5fb7f835b91cefac5e83101f54643901",
-          "version": "3.0.1"
-        }
+  "originHash" : "5510d86cba1c26243b108ef4ebc5b6fc4a5c012fd126209da7758f7c18c02007",
+  "pins" : [
+    {
+      "identity" : "solar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ceeK/Solar.git",
+      "state" : {
+        "revision" : "c2b96f2d5fb7f835b91cefac5e83101f54643901",
+        "version" : "3.0.1"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "41982a3656a71c768319979febd796c6fd111d5c",
+        "version" : "1.5.0"
+      }
+    }
+  ],
+  "version" : 3
 }
